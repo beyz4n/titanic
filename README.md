@@ -6,13 +6,13 @@ DataCamp 2023 Uçtan Uca Makine Öğrenmesi Modelleri &amp; FastAPI &amp; Docker
 Gerekli Docker kurulumları yapıldıktan ve kodlar makineye indirildikten sonra
 ```
 # Kodların makineye indirilmesi
-git clone https://github.com/yemregundogmus/datacamp-titanik.git
+git clone https://github.com/beyz4n/titanic
 
 # Docker image build
-docker build -t titanik-app:v1 .
+docker-compose build
 
 # Docker image run
-docker run -d -p 8000:8000 titanik-app:v1
+docker-compose up
 ```
 
 İşlemlerden sonra localhost:8000/docs adresinden uygulamaya erişilebilir. 
@@ -32,6 +32,8 @@ sudo su
 # AWS AMI
 yum install git -y
 yum install docker -y
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 # Docker servisinin restartlanması
 systemctl restart docker
@@ -39,7 +41,7 @@ systemctl restart docker
 
 - Git yüklendikten sonra alttaki komut ile kodlar makineye çekilir.
 ```
-git clone https://github.com/yemregundogmus/datacamp-titanik.git
+git clone https://github.com/beyz4n/titanic
 ```
 
 - Dosyaya gidilerek docker image'i build edilir.
@@ -47,17 +49,17 @@ git clone https://github.com/yemregundogmus/datacamp-titanik.git
 ```
 cd datacamp-titanik
 
-docker build -t titanik-app:v1 .
+docker-compose build
 ```
 
 - Build edilen docker image'i run edilir.
 ```
-docker run -d -p 0.0.0.0:8000:8000 titanik-app:v1
+docker-compose up
 ```
 
-Uygulama çalışınca makinenin public ipsinin 8000 portundan erişilebilir. 
+Uygulama çalışınca makinenin public ipsinin 8501 portundan erişilebilir. 
 
 ```
 # Örnek IP
-X.X.X.X:8000/docs
+X.X.X.X:8501
 ```
